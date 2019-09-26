@@ -4,13 +4,16 @@
   "private": true,
   "dependencies": {
     "react": "^16.9.0",
+    "react-app-polyfill": "^1.0.3",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false",
+    "test:jsdom": "react-scripts test --env=jsdom --watchAll=false",
+    "test:watch": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -25,7 +28,8 @@
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 safari version",
+      "ie 11"
     ]
   }
 }

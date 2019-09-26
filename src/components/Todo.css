@@ -1,0 +1,15 @@
+.todo-item {
+  padding: 5px 10px;
+}
+
+.todo-item span {
+  margin: 0 5px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.active {
+  text-decoration: underline;
+}
