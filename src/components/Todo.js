@@ -1,10 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Todo.css';
 
-const Todo = ({ onToggle, onUpdate, onDelete, title, completed }) => {
+const Todo = ({ onToggle, onUpdate, onDelete, id, title, completed }) => {
   const [ toEdit, setToEdit ] = useState(false);
   const inputEl = useRef(null);
-  const saveTodo = (e) => {
+  const saveTodo = e => {
     e.preventDefault();
 
     if (!inputEl.current.value.trim()) {
@@ -14,6 +14,12 @@ const Todo = ({ onToggle, onUpdate, onDelete, title, completed }) => {
     onUpdate(inputEl.current.value);
     setToEdit(false);
   };
+
+  useEffect(() => {
+    if (inputEl.current) {
+      inputEl.current.focus();
+    }
+  }, [toEdit]);
 
   console.log('Todo rendered');
   return (
@@ -25,6 +31,7 @@ const Todo = ({ onToggle, onUpdate, onDelete, title, completed }) => {
           <button type="button" onClick={onDelete}>Delete</button>
           <button type="submit">Update</button>
           <button type="button" onClick={() => setToEdit(false)}>Cancel</button>
+          <a href={`/#/todo/${id}`}>View</a>
         </form>
       ) : (
         <>
@@ -32,6 +39,7 @@ const Todo = ({ onToggle, onUpdate, onDelete, title, completed }) => {
           <input type="checkbox" checked={completed} onChange={onToggle}/>
           <button onClick={onDelete}>Delete</button>
           <button onClick={() => setToEdit(true)}>Edit</button>
+          <a href={`/#/todo/${id}`}>View</a>
         </>
       )}
     </div>

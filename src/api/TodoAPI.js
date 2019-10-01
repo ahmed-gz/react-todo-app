@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 
 const FETCH_TODOS_URL = 'http://www.mocky.io/v2/5d8ce55b2e0000fbcfabddc3?mocky-delay=2s';
-const CREATE_TODO_URL = 'https://jsonplaceholder.typicode.com/todos';
+const SAVE_TODO_URL = 'https://jsonplaceholder.typicode.com/todos/';
 
 const useTodoApi = () => {
-  const [ todos, setTodos ] = useState([]);
-  const [ isError, setIsError ] = useState(false);
-  const [ isloading, setIsLoading ] = useState(false);
+  const [todos, setTodos] = useState([]);
+  const [isError, setIsError] = useState(false);
+  const [isloading, setIsLoading] = useState(false);
 
   const fetchTodos = async () => {
     console.log('fetchTodos');
@@ -27,7 +27,7 @@ const useTodoApi = () => {
 
   const createTodo = async todo => {
     try {
-      const response = await fetch(CREATE_TODO_URL, {
+      const response = await fetch(SAVE_TODO_URL, {
         method: 'POST',
         body: JSON.stringify(todo),
         headers: {
@@ -35,17 +35,20 @@ const useTodoApi = () => {
         }
       });
       const json = await response.json();
-      const newId = Math.floor((Math.random() * 1000) + json.id);
 
-      setTodos([{...json, id: newId}, ...todos]);
+      return json;
     } catch (e) {
       console.log('Error : ', e);
+      setIsError(true);
+
+      return false;
     }
   };
 
-  const updateTodo = async todo => {
+  const updateTodo = async (id, todo) => {
     try {
-      const response = await fetch(CREATE_TODO_URL, {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      const response = await fetch(SAVE_TODO_URL + id, {
         method: 'PATCH',
         body: JSON.stringify(todo),
         headers: {
@@ -53,11 +56,30 @@ const useTodoApi = () => {
         }
       });
       const json = await response.json();
-      const newId = Math.floor((Math.random() * 1000) + json.id);
 
-      setTodos([{...json, id: newId}, ...todos]);
+      return json;
     } catch (e) {
       console.log('Error : ', e);
+      setIsError(true);
+
+      return false;
+    }
+  };
+
+  const removeTodo = async id => {
+    try {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      const response = await fetch(SAVE_TODO_URL + id, {
+        method: 'DELETE'
+      });
+      const json = await response.json();
+
+      return json;
+    } catch (e) {
+      console.log('Error:', e);
+      setIsError(true);
+
+      return false;
     }
   };
 
@@ -65,7 +87,7 @@ const useTodoApi = () => {
     fetchTodos();
   }, []);
 
-  return [ todos, isloading, isError, setTodos, fetchTodos, createTodo ];
+  return [todos, isloading, isError, setTodos, setIsError, fetchTodos, createTodo, updateTodo, removeTodo];
 }
 
 export default useTodoApi;
