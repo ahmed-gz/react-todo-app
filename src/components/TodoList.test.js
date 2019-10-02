@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import App from './App';
+import TodoList from './TodoList';
 
 let container = null;
 
@@ -16,13 +16,7 @@ afterEach(() => {
   container = null;
 });
 
-it('App renders without craching', () => {
-  act(() => {
-    render(<App/>, container);
-  });
-});
-
-it('App renders with fetched data', async () => {
+it('TodoList renders with sample data', () => {
   const SAMPLE_DATA = [
     {
       "userId": 1,
@@ -86,17 +80,9 @@ it('App renders with fetched data', async () => {
     }
   ];
 
-  jest.spyOn(global, 'fetch').mockImplementation(() =>
-    Promise.resolve({
-      json: () => Promise.resolve(SAMPLE_DATA)
-    })
-  );
-
-  await act(async () => {
-    render(<App />, container);
+  act(() => {
+    render(<TodoList todos={SAMPLE_DATA}/>, container);
   });
 
   expect(container.querySelectorAll('.todo-item')).toHaveLength(SAMPLE_DATA.length);
-
-  global.fetch.mockRestore();
 });

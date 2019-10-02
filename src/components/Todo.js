@@ -21,24 +21,24 @@ const Todo = ({ onToggle, onUpdate, onDelete, id, title, completed }) => {
     }
   }, [toEdit]);
 
-  console.log('Todo rendered');
+  // console.log('Todo rendered');
   return (
     <div className="todo-item">
       {toEdit ? (
         <form onSubmit={saveTodo}>
-          <input type="text" ref={inputEl} defaultValue={title} />
-          <input type="checkbox" checked={completed} onChange={onToggle} />
+          <input data-testid="title" type="text" ref={inputEl} defaultValue={title} />
+          <input data-testid="completed" type="checkbox" checked={completed} onChange={onToggle} />
           <button type="button" onClick={onDelete}>Delete</button>
-          <button type="submit">Update</button>
-          <button type="button" onClick={() => setToEdit(false)}>Cancel</button>
+          <button data-testid="submit" type="submit">Update</button>
+          <button data-testid="cancel" type="button" onClick={() => setToEdit(false)}>Cancel</button>
           <a href={`/#/todo/${id}`}>View</a>
         </form>
       ) : (
         <>
-          <span className={completed ? 'completed' : 'active'}>{title}</span>
-          <input type="checkbox" checked={completed} onChange={onToggle}/>
-          <button onClick={onDelete}>Delete</button>
-          <button onClick={() => setToEdit(true)}>Edit</button>
+          <span data-testid="title" className={completed ? 'completed' : 'active'}>{title}</span>
+          <input data-testid="completed" type="checkbox" checked={completed} onChange={onToggle}/>
+          <button type="button" onClick={onDelete}>Delete</button>
+          <button data-testid="edit" type="button" onClick={() => setToEdit(true)}>Edit</button>
           <a href={`/#/todo/${id}`}>View</a>
         </>
       )}

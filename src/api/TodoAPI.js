@@ -9,7 +9,7 @@ const useTodoApi = () => {
   const [isloading, setIsLoading] = useState(false);
 
   const fetchTodos = async () => {
-    console.log('fetchTodos');
+    // console.log('fetchTodos');
     setIsError(false);
     setIsLoading(true);
 
@@ -18,7 +18,10 @@ const useTodoApi = () => {
       const json = await response.json();
 
       setTodos(json);
+      console.log('Todos fetched');
     } catch (e) {
+      console.log('Error: ', e);
+
       setIsError(true);
     } finally {
       setIsLoading(false);
