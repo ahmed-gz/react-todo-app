@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { TODO_API } from 'util/config';
+import { useState, useEffect } from "react";
+import { TODO_API } from "util/config";
 
-const useSingleTodoAPI = (id) => {
+const useSingleTodoAPI = id => {
   const [todo, setTodo] = useState({});
   const [isloading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
@@ -17,7 +17,7 @@ const useSingleTodoAPI = (id) => {
 
       setTodo(json);
     } catch (e) {
-      console.log('Error: ', e);
+      console.log("Error: ", e);
       setIsError(true);
     } finally {
       setIsLoading(false);

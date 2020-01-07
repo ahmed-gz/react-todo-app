@@ -1,17 +1,17 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
-    '&:disabled': {
+    "&:disabled": {
       cursor: "not-allowed",
-      pointerEvents: "auto",
-    },
+      pointerEvents: "auto"
+    }
   },
   input: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(1)
   },
   link: {
-    margin: theme.spacing(1),
-  },
+    margin: theme.spacing(1)
+  }
 }));

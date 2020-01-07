@@ -1,8 +1,8 @@
-import React, { lazy } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React, { lazy } from "react";
+import { Switch, Route } from "react-router-dom";
 
-const MainPage = lazy(() => import('./pages/MainPage'));
-const TodoPage = lazy(() => import('./pages/TodoPage'));
+const MainPage = lazy(() => import("./pages/MainPage"));
+const TodoPage = lazy(() => import("./pages/TodoPage"));
 
 const Routes = () => {
   return (
