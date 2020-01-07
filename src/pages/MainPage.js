@@ -101,9 +101,9 @@ const MainPage = () => {
           <Loader />
         )}
 
-        <TodoList todos={visibleTodos} toggleTodo={toggleTodo} updateTodo={editTodo} deleteTodo={deleteTodo} />
-
         <TodoFilter disabled={isError || isloading} activeFilter={activeFilter} onFilterChange={setActiveFilter}/>
+
+        <TodoList todos={visibleTodos} toggleTodo={toggleTodo} updateTodo={editTodo} deleteTodo={deleteTodo} />
       </Box>
     </Container>
   );

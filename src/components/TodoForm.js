@@ -20,20 +20,26 @@ const TodoForm = ({ disabled, onAddTodo, onRefetch }) => {
 
   return (
     <form onSubmit={saveTodo}>
-      <Grid container justify="center" spacing={1}>
+      <Grid container spacing={2} alignItems="center">
         <Grid item xs={3}>
-          <Button variant="contained" size="large" color="primary" fullWidth className={classes.button} onClick={onRefetch} disabled={disabled}>Reload Todos</Button>
+          <Grid container justify="center">
+            <Button variant="contained" size="large" color="primary" fullWidth className={classes.button} onClick={onRefetch} disabled={disabled}>Reload Todos</Button>
+          </Grid>
         </Grid>
         <Grid item xs={6}>
-          <TextField
-            data-testid="title" inputRef={inputEl} fullWidth
-            placeholder="Todo title" disabled={disabled}
-            className={classes.input} label="Title"
-            multiline margin="normal" variant="outlined"
-          />
+          <Grid container justify="center">
+            <TextField
+              data-testid="title" inputRef={inputEl} fullWidth
+              placeholder="Todo title" disabled={disabled}
+              className={classes.input} label="Title"
+              multiline margin="normal" variant="outlined"
+            />
+        </Grid>
         </Grid>
         <Grid item xs={3}>
-          <Button type="submit" variant="contained" size="large" fullWidth className={classes.button} disabled={disabled}>Add Todo</Button>
+          <Grid container justify="center">
+            <Button type="submit" variant="contained" size="large" fullWidth className={classes.button} disabled={disabled}>Add Todo</Button>
+          </Grid>
         </Grid>
       </Grid>
     </form>
