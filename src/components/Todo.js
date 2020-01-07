@@ -54,9 +54,9 @@ const Todo = ({
           />
           <Checkbox
             data-testid="completed"
-            color="default"
+            color="primary"
             className={classes.input}
-            value={completed}
+            checked={completed}
             onChange={onToggle}
           />
           <Button
@@ -100,9 +100,9 @@ const Todo = ({
           </ListItemText>
           <Checkbox
             data-testid="completed"
-            color="default"
+            color="primary"
             className={classes.input}
-            value={completed}
+            checked={completed}
             onChange={onToggle}
           />
           <Button
