@@ -23,6 +23,10 @@ const TodoPage = ({ match, history }) => {
     setTodo({ ...todo, title: newTitle });
   };
 
+  const deleteTodo = () => {
+    console.log('Todo deleted: ', todo.id);
+  };
+
   return (
     <Container maxWidth="md" className="todo-page">
       <Box mx="10px" my="20px">
@@ -47,7 +51,7 @@ const TodoPage = ({ match, history }) => {
                 {...todo}
                 onToggle={toggleTodo}
                 onUpdate={title => updateTodo(title)}
-                onDelete={() => console.log('Todo deleted: ', todo.id)}
+                onDelete={deleteTodo}
               ></Todo>
             </Paper>
           </>

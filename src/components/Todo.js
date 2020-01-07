@@ -29,7 +29,6 @@ const Todo = ({ onToggle, onUpdate, onDelete, id, title, completed }) => {
     }
   }, [toEdit]);
 
-  // console.log('Todo rendered');
   return (
     <ListItem className="todo-item">
       {toEdit ? (

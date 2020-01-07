@@ -5,7 +5,6 @@ import Paper from '@material-ui/core/Paper';
 import Todo from './Todo';
 
 const TodoList = ({ todos, toggleTodo, updateTodo, deleteTodo }) => {
-  // console.log('TodoList rendered');
   return (
     <Paper className='container todo-list'>
       <List>

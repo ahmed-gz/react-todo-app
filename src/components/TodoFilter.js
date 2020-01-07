@@ -6,7 +6,6 @@ import { visibilityFilters } from '../utils';
 const TodoFilter = ({disabled, activeFilter, onFilterChange}) => {
   const classes = useStyles();
 
-  // console.log('TodoFilter rendered');
   return (
     <div className="todo-filter">
       <Button

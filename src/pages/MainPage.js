@@ -88,8 +88,6 @@ const MainPage = () => {
     }
   };
 
-  // console.log('App rendered');
-
   return (
     <Container maxWidth="md" className="app">
       <Box mx="10px" my="20px">

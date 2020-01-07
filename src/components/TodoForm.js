@@ -18,7 +18,6 @@ const TodoForm = ({ disabled, onAddTodo, onRefetch }) => {
     inputEl.current.value = '';
   };
 
-  // console.log('TodoForm rendered');
   return (
     <form onSubmit={saveTodo}>
       <Grid container justify="center" spacing={1}>
