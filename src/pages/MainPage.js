@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import ErrorBoundary from '../components/ErrorBoundary';
+import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 import TodoForm from '../components/TodoForm';
 import TodoList from '../components/TodoList';
 import TodoFilter from '../components/TodoFilter';
@@ -86,15 +88,15 @@ const MainPage = () => {
     }
   };
 
-  console.log('App rendered');
+  // console.log('App rendered');
 
   return (
-    <div className="app">
-      <ErrorBoundary>
+    <Container maxWidth="md" className="app">
+      <Box mx="10px" my="20px">
         <TodoForm disabled={isError || isloading} onRefetch={refetchTodos} onAddTodo={title => addTodo(title)} />
 
         {isError && (
-          <h2>Something went wrong, please try again!</h2>
+          <Typography color="textPrimary">Something went wrong, please try again.</Typography>
         )}
         {isloading && (
           <Loader />
@@ -103,8 +105,8 @@ const MainPage = () => {
         <TodoList todos={visibleTodos} toggleTodo={toggleTodo} updateTodo={editTodo} deleteTodo={deleteTodo} />
 
         <TodoFilter disabled={isError || isloading} activeFilter={activeFilter} onFilterChange={setActiveFilter}/>
-      </ErrorBoundary>
-    </div>
+      </Box>
+    </Container>
   );
 };
 

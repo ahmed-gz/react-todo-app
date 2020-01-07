@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { HashRouter } from 'react-router-dom';
+
 import './App.css';
 
 import Loader from './Loader';

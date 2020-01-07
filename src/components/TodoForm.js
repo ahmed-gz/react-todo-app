@@ -1,7 +1,12 @@
 import React, { useRef } from 'react';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import { useStyles } from '../styles/styles';
 
 const TodoForm = ({ disabled, onAddTodo, onRefetch }) => {
   const inputEl = useRef(null);
+  const classes = useStyles();
   const saveTodo = e => {
     e.preventDefault();
 
@@ -13,12 +18,25 @@ const TodoForm = ({ disabled, onAddTodo, onRefetch }) => {
     inputEl.current.value = '';
   };
 
-  console.log('TodoForm rendered');
+  // console.log('TodoForm rendered');
   return (
     <form onSubmit={saveTodo}>
-      <button type="button" onClick={onRefetch} disabled={disabled}>Reload Todos</button>
-      <input type="text" ref={inputEl} disabled={disabled} />
-      <button type="submit" disabled={disabled}>Add Todo</button>
+      <Grid container justify="center" spacing={1}>
+        <Grid item xs={3}>
+          <Button variant="contained" size="large" color="primary" fullWidth className={classes.button} onClick={onRefetch} disabled={disabled}>Reload Todos</Button>
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            data-testid="title" inputRef={inputEl} fullWidth
+            placeholder="Todo title" disabled={disabled}
+            className={classes.input} label="Title"
+            multiline margin="normal" variant="outlined"
+          />
+        </Grid>
+        <Grid item xs={3}>
+          <Button type="submit" variant="contained" size="large" fullWidth className={classes.button} disabled={disabled}>Add Todo</Button>
+        </Grid>
+      </Grid>
     </form>
   );
 };
