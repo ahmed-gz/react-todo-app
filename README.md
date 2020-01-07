@@ -1,4 +1,12 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# react-todo-app
+
+Simple experimenting Todo app built with React, create-react-app, react-router, material-ui and axios.
+
+<p align="center">
+  <a href="https://ahmed-gz.github.io/react-todo-app" target="_blank">
+    Live Demo
+  </a>
+</p>
 
 ## Available Scripts
 
