@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import { useStyles } from '../styles/styles';
-import { visibilityFilters } from '../utils';
+import { useStyles } from 'styles/styles';
+import { visibilityFilters } from 'util/filters';
 
 const TodoFilter = ({disabled, activeFilter, onFilterChange}) => {
   const classes = useStyles();

@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import { useStyles } from '../styles/styles';
+import { useStyles } from 'styles/styles';
 
 const TodoForm = ({ disabled, onAddTodo, onRefetch }) => {
   const inputEl = useRef(null);

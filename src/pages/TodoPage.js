@@ -6,10 +6,10 @@ import Typography from '@material-ui/core/Typography';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Link from '@material-ui/core/Link';
 
-import Todo from '../components/Todo';
-import Loader from '../components/Loader';
-import useSingleTodoAPI from '../api/SingleTodoAPI';
-import { useStyles } from '../styles/styles';
+import Todo from 'components/Todo';
+import Loader from 'components/Loader';
+import useSingleTodoAPI from 'api/SingleTodoAPI';
+import { useStyles } from 'styles/styles';
 
 const TodoPage = ({ match, history }) => {
   const [todo, isloading, isError, setTodo] = useSingleTodoAPI(match.params.id);

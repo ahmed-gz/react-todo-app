@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-
-const TODO_API = 'https://jsonplaceholder.typicode.com/todos/';
+import { TODO_API } from 'util/config';
 
 const useSingleTodoAPI = (id) => {
   const [todo, setTodo] = useState({});

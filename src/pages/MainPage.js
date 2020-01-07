@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import TodoForm from '../components/TodoForm';
-import TodoList from '../components/TodoList';
-import TodoFilter from '../components/TodoFilter';
-import useTodoApi from '../api/TodoAPI';
-import Loader from '../components/Loader';
-import { visibilityFilters } from '../utils';
+
+import TodoForm from 'components/TodoForm';
+import TodoList from 'components/TodoList';
+import TodoFilter from 'components/TodoFilter';
+import Loader from 'components/Loader';
+import useTodoApi from 'api/TodoAPI';
+import { visibilityFilters } from 'util/filters';
 
 const MainPage = () => {
   const [todos, isloading, isError, setTodos, setIsError, refetchTodos, createTodo, updateTodo, removeTodo] = useTodoApi([]);

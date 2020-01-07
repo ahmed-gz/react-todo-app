@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
-
-const FETCH_TODOS_URL = 'http://www.mocky.io/v2/5d8ce55b2e0000fbcfabddc3?mocky-delay=2s';
-const SAVE_TODO_URL = 'https://jsonplaceholder.typicode.com/todos/';
+import { FETCH_TODOS_URL, SAVE_TODO_URL } from 'util/config';
 
 const useTodoApi = () => {
   const [todos, setTodos] = useState([]);

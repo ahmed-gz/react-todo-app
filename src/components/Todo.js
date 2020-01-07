@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
-import { useStyles } from '../styles/styles';
+import { useStyles } from 'styles/styles';
 import './Todo.css';
 
 const Todo = ({ onToggle, onUpdate, onDelete, id, title, completed }) => {
