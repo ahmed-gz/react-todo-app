@@ -40,7 +40,7 @@ const TodoPage = ({ match, history }) => {
             <Paper>
               <Box my="10px" p="10px">
                 <Breadcrumbs aria-label="breadcrumb">
-                  <Link color="inherit" href="/" className={classes.link}>Main Page</Link>
+                  <Link color="inherit" href="#/" className={classes.link}>Main Page</Link>
                   <Typography color="textPrimary">Todo Page</Typography>
                 </Breadcrumbs>
               </Box>
@@ -49,6 +49,7 @@ const TodoPage = ({ match, history }) => {
               <Todo
                 key={todo.id}
                 {...todo}
+                isRow={false}
                 onToggle={toggleTodo}
                 onUpdate={title => updateTodo(title)}
                 onDelete={deleteTodo}

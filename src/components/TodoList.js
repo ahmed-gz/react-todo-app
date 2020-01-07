@@ -12,6 +12,7 @@ const TodoList = ({ todos, toggleTodo, updateTodo, deleteTodo }) => {
           <Todo
             key={todo.id}
             {...todo}
+            isRow={true}
             onToggle={event => toggleTodo(todo.id, event)}
             onUpdate={title => updateTodo(todo.id, title)}
             onDelete={() => deleteTodo(todo.id)}
